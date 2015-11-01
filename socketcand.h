@@ -13,11 +13,12 @@
 #define DEFAULT_BUSNAME "vcan0"
 
 #define STATE_NO_BUS 0
-#define STATE_BCM 1
-#define STATE_RAW 2
-#define STATE_SHUTDOWN 3
-#define STATE_CONTROL 4
-#define STATE_ISOTP 5
+#define STATE_DEFAULT 1
+#define STATE_BCM 2
+#define STATE_RAW 3
+#define STATE_SHUTDOWN 4
+#define STATE_CONTROL 5
+#define STATE_ISOTP 6
 
 #define PRINT_INFO(...) if(daemon_flag) syslog(LOG_INFO, __VA_ARGS__); else printf(__VA_ARGS__);
 #define PRINT_ERROR(...) if(daemon_flag) syslog(LOG_ERR, __VA_ARGS__); else fprintf(stderr, __VA_ARGS__);
@@ -29,6 +30,7 @@
 
 #undef DEBUG_RECEPTION
 
+void state_default();
 void state_bcm();
 void state_raw();
 void state_isotp();

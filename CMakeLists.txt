@@ -13,6 +13,7 @@ set(SRC
     state_raw.c
     state_isotp.c
     state_control.c
+    state_default.c
 )
 
 add_executable(socketcand ${SRC})

@@ -506,7 +506,7 @@ int main(int argc, char **argv)
 				if(found) {
 					strcpy(buf, "< ok >");
 					send(client_socket, buf, strlen(buf), 0);
-					state = STATE_BCM;
+					state = STATE_DEFAULT;
 					break;
 				} else {
 					PRINT_INFO("client tried to access unauthorized bus.\n");
@@ -521,6 +521,9 @@ int main(int argc, char **argv)
 			}
 			break;
 
+		case STATE_DEFAULT:
+			state_default();
+			break;
 		case STATE_BCM:
 			state_bcm();
 			break;
