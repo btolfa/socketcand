@@ -81,3 +81,10 @@ set(PACKAGE_URL "https://github.com/dschanoeh/socketcand")
 set(PACKAGE_VERSION "0.4.2")
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmakeconfig.h.in ${CMAKE_BINARY_DIR}/config.h)
+
+
+# install socketcand
+install(TARGETS socketcand RUNTIME DESTINATION bin)
+install(TARGETS socketcandcl RUNTIME DESTINATION bin)
+install(FILES etc/socketcand.conf DESTINATION /etc)
+install(PROGRAMS init.d/socketcand DESTINATION /etc/init.d)
