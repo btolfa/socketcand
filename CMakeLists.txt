@@ -4,6 +4,7 @@ project(socketcand C)
 
 find_package(Threads REQUIRED)
 
+# socketcand
 set(SRC
     socketcand.c
     statistics.c
@@ -15,7 +16,6 @@ set(SRC
 )
 
 add_executable(socketcand ${SRC})
-
 target_include_directories(socketcand PUBLIC
         include
         ${CMAKE_BINARY_DIR}
@@ -23,6 +23,16 @@ target_include_directories(socketcand PUBLIC
 
 target_link_libraries(socketcand Threads::Threads)
 target_compile_definitions(socketcand PUBLIC PF_CAN=29 AF_CAN=PF_CAN)
+
+# socketcancl
+add_executable(socketcandcl socketcandcl.c)
+target_include_directories(socketcandcl PUBLIC
+        include
+        ${CMAKE_BINARY_DIR}
+        )
+target_link_libraries(socketcandcl Threads::Threads)
+target_compile_definitions(socketcandcl PUBLIC PF_CAN=29 AF_CAN=PF_CAN)
+
 
 include(CheckIncludeFiles)
 include(CheckFunctionExists)
